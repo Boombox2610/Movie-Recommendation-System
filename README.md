@@ -8,12 +8,12 @@ This repository combines a Python script for a movie recommendation system with 
 
 Before running the application or script, ensure you have the necessary libraries installed. You can install them using the following command:
 
-```bash
+```python
 pip install numpy pandas scikit-learn nltk streamlit
 ```
 
 Datasets (csv) files are too large to be uploaded on github. Use the link below to refer to the 2 databases tmdb_5000_movies.csv and tmdb_5000_credits.csv
-```python
+```bash
 https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata/?select=tmdb_5000_movies.csv
 ```
 
@@ -32,7 +32,7 @@ pickle.dump(similarity, open('similarity.pkl', 'wb'))
    cd movie-recommendation-web
    ```
 
-2. Download the dataset files (`tmdb_5000_movies.csv` and `tmdb_5000_credits.csv`) and place them in the same directory as the scripts.
+2. Download the dataset files (`tmdb_5000_movies.csv` and `tmdb_5000_credits.csv`) from the website mentioned above and place them in the same directory as the scripts.
 
 3. Run the Streamlit web application:
 
