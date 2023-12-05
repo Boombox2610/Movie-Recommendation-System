@@ -1,15 +1,15 @@
-# Movie Recommendation System README
+# Movie Recommender System with Streamlit README
 
 ## Introduction
 
-This repository contains a Python script for a movie recommendation system. The system recommends 5 movies similar to a selected movie based on various features such as overview, genres, keywords, cast, and crew.
+This repository extends the movie recommendation system by integrating a user-friendly web interface using Streamlit. Users can interactively select a movie and receive recommendations through a simple web application.
 
 ## Prerequisites
 
-Before running the script, ensure you have the necessary libraries installed. You can install them using the following command:
+Before running the application, make sure to install the required libraries. You can install them using the following command:
 
 ```bash
-pip install numpy pandas scikit-learn nltk
+pip install streamlit pandas
 ```
 
 ## Usage
@@ -17,64 +17,58 @@ pip install numpy pandas scikit-learn nltk
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/movie-recommendation-system.git
-   cd movie-recommendation-system
+   git clone https://github.com/your-username/movie-recommender-web.git
+   cd movie-recommender-web
    ```
 
 2. Download the dataset files (`tmdb_5000_movies.csv` and `tmdb_5000_credits.csv`) and place them in the same directory as the script.
 
-3. Run the script:
+3. Run the Streamlit web application:
 
    ```bash
-   python recommend_movies.py
+   streamlit run app.py
    ```
 
-   Replace `recommend_movies.py` with the actual filename if different.
+   Replace `app.py` with the actual filename if different.
 
-4. Enter the title of the movie when prompted.
+4. Open your web browser and navigate to the provided local host URL.
 
-5. The script will output the top 5 recommended movies based on similarity.
+5. Choose a movie from the dropdown menu and click the "Recommend" button.
+
+6. View the recommended movies displayed on the web page.
 
 ## Code Explanation
 
-### Data Preprocessing
+### Streamlit Application
 
-The script preprocesses the movie data by cleaning and transforming features such as genres, keywords, cast, and crew.
+The Streamlit application (`app.py`) utilizes the `recommend` function from the movie recommendation script and creates an interactive web interface.
 
 ```python
-# Data Preprocessing
+# Streamlit Application
 # ...
 ```
 
-### Feature Extraction
+### User Interface
 
-The script uses natural language processing techniques to extract features from the movie data.
-
-```python
-# Feature Extraction
-# ...
-```
-
-### Recommendation Function
-
-The `recommend` function takes a movie title as input and outputs 5 recommended movies.
+The web interface allows users to select a movie from the dropdown menu and click a button to receive recommendations.
 
 ```python
-# Movie Recommendation Function
+# User Interface
 # ...
 ```
 
 ## File Descriptions
 
-- `recommend_movies.py`: The main script for recommending movies.
+- `app.py`: The Streamlit application script.
+- `recommend_movies.py`: The main script for recommending movies (as discussed in the previous README).
 - `tmdb_5000_movies.csv`: Dataset containing movie details.
 - `tmdb_5000_credits.csv`: Dataset containing movie credits information.
 - `movies.pkl`: Pickle file containing a dictionary of movie data.
-- `similarity.pkl`: (Currently commented out) Pickle file containing the cosine similarity matrix.
+- `similarity.pkl`: Pickle file containing the cosine similarity matrix.
 
 ## Note
 
-- The script uses the CountVectorizer and cosine similarity from scikit-learn for feature extraction and similarity computation.
-- The output of the recommendation is displayed in the console.
+- Ensure that the movie recommendation system script (`recommend_movies.py`) is in the same directory.
+- The Streamlit application provides a simple and interactive way to explore movie recommendations.
 
-Feel free to explore and modify the script to suit your needs!
+Feel free to customize and enhance the web interface according to your preferences!
