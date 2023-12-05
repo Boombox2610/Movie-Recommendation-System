@@ -12,6 +12,17 @@ Before running the application or script, ensure you have the necessary librarie
 pip install numpy pandas scikit-learn nltk streamlit
 ```
 
+Datasets (csv) files are too large to be uploaded on github. Use the link below to refer to the 2 databases tmdb_5000_movies.csv and tmdb_5000_credits.csv
+```python
+https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata/?select=tmdb_5000_movies.csv
+```
+
+While using these databases on movieRecSystem.py, line 69 and 70, making `pkl` files of the csv using code
+```python
+pickle.dump(new_df.to_dict(), open('movies.pkl', 'wb'))
+pickle.dump(similarity, open('similarity.pkl', 'wb'))
+```
+
 ## Usage
 
 1. Clone the repository:
