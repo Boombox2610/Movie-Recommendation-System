@@ -1,15 +1,15 @@
-# Movie Recommender System with Streamlit README
+# Movie Recommendation System with Streamlit README
 
 ## Introduction
 
-This repository extends the movie recommendation system by integrating a user-friendly web interface using Streamlit. Users can interactively select a movie and receive recommendations through a simple web application.
+This repository combines a Python script for a movie recommendation system with a Streamlit web application, providing a comprehensive solution. The movie recommendation system suggests 5 movies similar to a selected movie, while the Streamlit app offers a user-friendly interface for interactive exploration.
 
 ## Prerequisites
 
-Before running the application, make sure to install the required libraries. You can install them using the following command:
+Before running the application or script, ensure you have the necessary libraries installed. You can install them using the following command:
 
 ```bash
-pip install streamlit pandas
+pip install numpy pandas scikit-learn nltk streamlit
 ```
 
 ## Usage
@@ -17,11 +17,11 @@ pip install streamlit pandas
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/movie-recommender-web.git
-   cd movie-recommender-web
+   git clone https://github.com/your-username/movie-recommendation-web.git
+   cd movie-recommendation-web
    ```
 
-2. Download the dataset files (`tmdb_5000_movies.csv` and `tmdb_5000_credits.csv`) and place them in the same directory as the script.
+2. Download the dataset files (`tmdb_5000_movies.csv` and `tmdb_5000_credits.csv`) and place them in the same directory as the scripts.
 
 3. Run the Streamlit web application:
 
@@ -39,13 +39,33 @@ pip install streamlit pandas
 
 ## Code Explanation
 
-### Streamlit Application
+### Movie Recommendation System Script
 
-The Streamlit application (`app.py`) utilizes the `recommend` function from the movie recommendation script and creates an interactive web interface.
+The script (`recommend_movies.py`) preprocesses movie data, extracts features, and provides a function for recommending movies based on similarity.
 
 ```python
-# Streamlit Application
-# ...
+# def recommend(movie):
+    movie_index = new_df[new_df['title'] == movie].index[0]
+    distances = similarity[movie_index]
+    movies_list = sorted(list(enumerate(distances)), reverse=True, key = lambda x:x[1])[1:6]
+    for i in movies_list:
+        print(new_df.iloc[i[0]].title)
+```
+
+### Streamlit Application
+
+The Streamlit application (`app.py`) integrates the movie recommendation script and creates an interactive web interface, modifying the recommend(movie) function to be integrated with the UI.
+
+```python
+# def recommend(movie):
+    movie_index = movies[movies['title'] == movie].index[0]
+    distances = similarity[movie_index]
+    movies_list = sorted(list(enumerate(distances)), reverse=True, key = lambda x:x[1])[1:6]
+    recommended_movies = []
+    for i in movies_list:
+        movie_id = i[0]
+        recommended_movies.append(movies.iloc[i[0]].title)
+    return recommended_movies
 ```
 
 ### User Interface
@@ -53,14 +73,22 @@ The Streamlit application (`app.py`) utilizes the `recommend` function from the 
 The web interface allows users to select a movie from the dropdown menu and click a button to receive recommendations.
 
 ```python
-# User Interface
-# ...
+# st.title("Movie Recommender System")
+selected_movie_name = st.selectbox(
+    'Choose Options: ',
+    movies['title'].values
+)
+
+if st.button('Recommend'):
+    recommendations = recommend(selected_movie_name)
+    for i in recommendations:
+        st.write(i)
 ```
 
 ## File Descriptions
 
 - `app.py`: The Streamlit application script.
-- `recommend_movies.py`: The main script for recommending movies (as discussed in the previous README).
+- `recommend_movies.py`: The main script for recommending movies.
 - `tmdb_5000_movies.csv`: Dataset containing movie details.
 - `tmdb_5000_credits.csv`: Dataset containing movie credits information.
 - `movies.pkl`: Pickle file containing a dictionary of movie data.
