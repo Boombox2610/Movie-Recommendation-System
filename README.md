@@ -3,6 +3,10 @@
 ## Introduction
 
 This repository combines a Python script for a movie recommendation system with a Streamlit web application, providing a comprehensive solution. The movie recommendation system suggests 5 movies similar to a selected movie, while the Streamlit app offers a user-friendly interface for interactive exploration.
+Youtube Demo Link:
+```bash
+https://youtu.be/VaM0fx460rk
+```
 
 ## Prerequisites
 
