@@ -44,7 +44,7 @@ pip install numpy pandas scikit-learn nltk streamlit
 The script (`recommend_movies.py`) preprocesses movie data, extracts features, and provides a function for recommending movies based on similarity.
 
 ```python
-# def recommend(movie):
+ def recommend(movie):
     movie_index = new_df[new_df['title'] == movie].index[0]
     distances = similarity[movie_index]
     movies_list = sorted(list(enumerate(distances)), reverse=True, key = lambda x:x[1])[1:6]
@@ -57,7 +57,7 @@ The script (`recommend_movies.py`) preprocesses movie data, extracts features, a
 The Streamlit application (`app.py`) integrates the movie recommendation script and creates an interactive web interface, modifying the recommend(movie) function to be integrated with the UI.
 
 ```python
-# def recommend(movie):
+ def recommend(movie):
     movie_index = movies[movies['title'] == movie].index[0]
     distances = similarity[movie_index]
     movies_list = sorted(list(enumerate(distances)), reverse=True, key = lambda x:x[1])[1:6]
@@ -73,7 +73,7 @@ The Streamlit application (`app.py`) integrates the movie recommendation script 
 The web interface allows users to select a movie from the dropdown menu and click a button to receive recommendations.
 
 ```python
-# st.title("Movie Recommender System")
+ st.title("Movie Recommender System")
 selected_movie_name = st.selectbox(
     'Choose Options: ',
     movies['title'].values
